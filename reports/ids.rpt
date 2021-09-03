@@ -1,0 +1,54 @@
+Nodo inicial: Arad
+Nodo final: Bucharest
+
+Apuntador: Arad
+
+Apuntador: Sibiu
+
+Apuntador: Arad
+
+Apuntador: Timisoara
+
+Apuntador: Arad
+
+Apuntador: Zerind
+
+Apuntador: Arad
+
+Apuntador: Arad
+
+Apuntador: Sibiu
+
+Apuntador: Fagaras
+
+Apuntador: Sibiu
+
+Apuntador: Oradea
+
+Apuntador: Sibiu
+
+Apuntador: Rimnicu Vilcea
+
+Apuntador: Sibiu
+
+Apuntador: Arad
+
+Apuntador: Timisoara
+
+Apuntador: Lugoj
+
+Apuntador: Timisoara
+
+Apuntador: Arad
+
+Apuntador: Zerind
+
+Apuntador: Arad
+
+Apuntador: Arad
+
+Apuntador: Sibiu
+
+Apuntador: Fagaras
+Camino: Arad->Sibiu->Fagaras->Bucharest
+Tiempo: 0.0000000000 segundos

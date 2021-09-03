@@ -1,5 +1,6 @@
 import sys
 from search.structure.graph import Graph
+from search.structure.node import Node
 from search.strategy import Strategy as search
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -11,7 +12,7 @@ class ListBoxWidget(QListWidget):
         super().__init__(parent)
         self.setAcceptDrops(True)
         self.resize(600, 600)
-        self.links = [r'C:\Users\vicoo\PycharmProjects\Search_Algorithms\graph.gp']
+        self.links = ['./graph.gp']
         self.addItems(self.links)
 
     def dragEnterEvent(self, event):
@@ -92,33 +93,64 @@ class MainWindow(QMainWindow):
         self.btn.setMenu(menu)
         self.btn.setGeometry(1250, 250, 200, 50)
         self.graph = Graph(path)
+        self.start_node = self.graph.list[0]
+        self.start_node.start = True
+        self.finish_node = self.graph.list[-1]
+        self.finish_node.finish = True
         self.move = []
         self.drag = False
+        self.enable = True
+
+    def select(self, event):
+        for node in self.graph.list:
+            if int(node.x) <= event.pos().x() <= int(node.x) + 50 \
+                    and int(node.y) <= event.pos().y() <= int(node.y) + 50:
+                return node
+        return Node('')
+
+    def action(self, action, event):
+        select = self.select(event)
+        if action == 'start' and select.name != '':
+            self.graph.restart()
+            self.start_node.start = False
+            self.start_node = select
+            self.start_node.start = True
+            self.update()
+        if action == 'finish' and select.name != '':
+            self.graph.restart()
+            self.finish_node.finish = False
+            self.finish_node = select
+            self.finish_node.finish = True
+            self.update()
 
     def search(self, strategy):
         if strategy == 'dfs':
-            search.depth_first_search(self.graph.list[0], self.graph.list[-2], self.graph, self)
+            search.depth_first_search(self.start_node, self.finish_node, self.graph, self)
         elif strategy == 'bfs':
-            search.breadth_first_search(self.graph.list[0], self.graph.list[-2], self.graph, self)
+            search.breadth_first_search(self.start_node, self.finish_node, self.graph, self)
         elif strategy == 'ids':
-            search.iterative_depth_search(self.graph.list[0], self.graph.list[-2], self.graph, self)
+            search.iterative_depth_search(self.start_node, self.finish_node, self.graph, self)
         elif strategy == 'ucs':
-            search.uniform_cost_search(self.graph.list[0], self.graph.list[-2], self.graph, self)
+            search.uniform_cost_search(self.start_node, self.finish_node, self.graph, self)
         elif strategy == 'greedy':
-            search.greedy_search(self.graph.list[0], self.graph.list[-2], self.graph, self)
+            search.greedy_search(self.start_node, self.finish_node, self.graph, self)
         elif strategy == 'A*':
-            search.a_star(self.graph.list[0], self.graph.list[-2], self.graph, self)
+            search.a_star(self.start_node, self.finish_node, self.graph, self)
 
     def paintEvent(self, event):
         qp = QPainter()
         qp.begin(self)
         for node in self.graph.list:
-            if node.visited:
+            if node.track:
                 qp.setPen(QColor(Qt.yellow))
-            elif node.prompter:
+            elif node.finish:
                 qp.setPen(QColor(Qt.red))
-            elif node.track:
-                qp.setPen(QColor(Qt.green))
+            elif node.start:
+                qp.setPen(QColor(Qt.darkGreen))
+            elif node.prompter:
+                qp.setPen(QColor(Qt.darkMagenta))
+            elif node.prompter:
+                qp.setPen(QColor(Qt.darkCyan))
             else:
                 qp.setPen(QColor(Qt.darkBlue))
             qp.drawEllipse(int(node.x), int(node.y), 50, 50)
@@ -128,14 +160,18 @@ class MainWindow(QMainWindow):
                 qp.drawLine(int(node.x) + 25, int(node.y) + 25, int(route.x) + 25, int(route.y) + 25)
         qp.end()
 
+    def contextMenuEvent(self, event):
+        menu = QMenu(self)
+        menu.addAction('Inicio', lambda: self.action('start', event))
+        menu.addSeparator()
+        menu.addAction('Fin', lambda: self.action('finish', event))
+        menu.exec(event.globalPos())
+
     def mousePressEvent(self, event):
-        if event.buttons() and Qt.LeftButton:
-            for node in self.graph.list:
-                if int(node.x) <= event.pos().x() <= int(node.x) + 50 \
-                        and int(node.y) <= event.pos().y() <= int(node.y) + 50:
-                    self.move = node
-                    self.drag = True
-                    break
+        select = self.select(event)
+        if event.buttons() and Qt.LeftButton and select.name != '':
+            self.move = select
+            self.drag = True
 
     def mouseMoveEvent(self, event):
         if self.drag:

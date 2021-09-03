@@ -1,0 +1,65 @@
+Nodo inicial: Arad
+Nodo final: Bucharest
+Frontera:
+
+Apuntador: Arad
+Frontera:
+   Nodo = Sibiu
+   Nodo = Timisoara
+
+Apuntador: Sibiu
+Frontera:
+   Nodo = Timisoara
+   Nodo = Zerind
+   Nodo = Fagaras
+   Nodo = Oradea
+
+Apuntador: Timisoara
+Frontera:
+   Nodo = Zerind
+   Nodo = Fagaras
+   Nodo = Oradea
+   Nodo = Rimnicu Vilcea
+
+Apuntador: Zerind
+Frontera:
+   Nodo = Fagaras
+   Nodo = Rimnicu Vilcea
+   Nodo = Lugoj
+
+Apuntador: Fagaras
+Frontera:
+   Nodo = Oradea
+   Nodo = Rimnicu Vilcea
+   Nodo = Lugoj
+   Nodo = Oradea
+
+Apuntador: Oradea
+Frontera:
+   Nodo = Rimnicu Vilcea
+   Nodo = Lugoj
+   Nodo = Oradea
+
+Apuntador: Rimnicu Vilcea
+Frontera:
+   Nodo = Lugoj
+   Nodo = Oradea
+   Nodo = Bucharest
+   Nodo = Craiova
+
+Apuntador: Lugoj
+Frontera:
+   Nodo = Oradea
+   Nodo = Bucharest
+   Nodo = Craiova
+   Nodo = Pitesti
+
+Apuntador: Oradea
+Frontera:
+   Nodo = Bucharest
+   Nodo = Craiova
+   Nodo = Pitesti
+
+Apuntador: Bucharest
+Camino: Arad->Sibiu->Fagaras->Bucharest
+Tiempo: 0.0000000000 segundos

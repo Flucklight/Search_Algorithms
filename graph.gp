@@ -1,4 +1,4 @@
-Arad:2:200,Bucharest:886:362,Craiova:399:528,Dobreta:207:526,Eforie:1167:482,Fagaras:477:134,Giurgiu:828:525,Hirsova:1175:366,Iasi:1022:121,Lugoj:207:367,Mehadia:232:440,Neamt:944:43,Oradea:152:6,Pitesti:711:391,Rimnicu Vilcea:482:348,Sibiu:299:219,Timisoara:68:316,Urziceni:1036:347,Vaslui:1061:205,Zerind:30:78
+Arad:1.0:204.0,Bucharest:886.0:366.0,Craiova:481.0:525.0,Dobreta:207.0:526.0,Eforie:1109.0:501.0,Fagaras:571.0:143.0,Giurgiu:852.0:500.0,Hirsova:1160.0:369.0,Iasi:1096.0:109.0,Lugoj:207.0:367.0,Mehadia:232.0:440.0,Neamt:1026.0:36.0,Oradea:152.0:6.0,Pitesti:688.0:376.0,Rimnicu Vilcea:483.0:351.0,Sibiu:299.0:219.0,Timisoara:77.0:333.0,Urziceni:1023.0:309.0,Vaslui:1110.0:214.0,Zerind:30.0:78.0
 *,*,*,*,*,*,*,*,*,*,*,*,*,*,*,140.0,118.0,*,*,75.0
 *,*,*,*,*,211.0,90.0,*,*,*,*,*,*,101.0,*,*,*,85.0,*,*
 *,*,*,120.0,*,*,*,*,*,*,*,*,*,138.0,146.0,*,*,*,*,*

@@ -1,0 +1,82 @@
+Nodo inicial: Arad
+Nodo final: Bucharest
+Frontera:
+   Nodo = Arad, g = 0
+
+Apuntador: Arad
+Frontera:
+   Nodo = Zerind, g = 75.0
+   Nodo = Timisoara, g = 118.0
+   Nodo = Sibiu, g = 140.0
+
+Apuntador: Zerind
+Frontera:
+   Nodo = Timisoara, g = 118.0
+   Nodo = Sibiu, g = 140.0
+   Nodo = Oradea, g = 146.0
+
+Apuntador: Timisoara
+Frontera:
+   Nodo = Sibiu, g = 140.0
+   Nodo = Oradea, g = 146.0
+   Nodo = Lugoj, g = 229.0
+
+Apuntador: Sibiu
+Frontera:
+   Nodo = Oradea, g = 146.0
+   Nodo = Rimnicu Vilcea, g = 220.0
+   Nodo = Lugoj, g = 229.0
+   Nodo = Fagaras, g = 239.0
+
+Apuntador: Oradea
+Frontera:
+   Nodo = Rimnicu Vilcea, g = 220.0
+   Nodo = Lugoj, g = 229.0
+   Nodo = Fagaras, g = 239.0
+
+Apuntador: Rimnicu Vilcea
+Frontera:
+   Nodo = Lugoj, g = 229.0
+   Nodo = Fagaras, g = 239.0
+   Nodo = Pitesti, g = 317.0
+   Nodo = Craiova, g = 366.0
+
+Apuntador: Lugoj
+Frontera:
+   Nodo = Fagaras, g = 239.0
+   Nodo = Mehadia, g = 299.0
+   Nodo = Pitesti, g = 317.0
+   Nodo = Craiova, g = 366.0
+
+Apuntador: Fagaras
+Frontera:
+   Nodo = Mehadia, g = 299.0
+   Nodo = Pitesti, g = 317.0
+   Nodo = Craiova, g = 366.0
+   Nodo = Bucharest, g = 450.0
+
+Apuntador: Mehadia
+Frontera:
+   Nodo = Pitesti, g = 317.0
+   Nodo = Craiova, g = 366.0
+   Nodo = Dobreta, g = 374.0
+   Nodo = Bucharest, g = 450.0
+
+Apuntador: Pitesti
+Frontera:
+   Nodo = Craiova, g = 366.0
+   Nodo = Dobreta, g = 374.0
+   Nodo = Bucharest, g = 418.0
+
+Apuntador: Craiova
+Frontera:
+   Nodo = Dobreta, g = 374.0
+   Nodo = Bucharest, g = 418.0
+
+Apuntador: Dobreta
+Frontera:
+   Nodo = Bucharest, g = 418.0
+
+Apuntador: Bucharest
+Camino: Arad->Sibiu->Rimnicu Vilcea->Pitesti->Bucharest
+Tiempo: 0.0000000000 segundos

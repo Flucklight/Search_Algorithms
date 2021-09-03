@@ -27,7 +27,7 @@ class Graph:
             node.prompter = False
 
     def save_structure(self):
-        with open(r'C:\Users\vicoo\PycharmProjects\Search_Algorithms\graph.gp', 'w') as f:
+        with open('./graph.gp', 'w') as f:
             data = ''
             for node in self.list:
                 data += (str(node.name) + ':'

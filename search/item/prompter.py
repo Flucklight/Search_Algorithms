@@ -15,3 +15,4 @@ class Prompter:
     def set_prompter_cost_heuristic(self, tupla):
         self.node = tupla[0][0]
         self.g = tupla[0][1]
+        self.h = tupla[0][2]

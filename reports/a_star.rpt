@@ -1,0 +1,13 @@
+Nodo inicial: Arad
+Nodo final: Zerind
+Frontera:
+   Nodo = Arad, g = 0, h = 0, f = 0
+
+Apuntador: Arad
+Frontera:
+   Nodo = Zerind, g = 75.0, h = 0.0, f = 75.0
+   Nodo = Timisoara, g = 118.0, h = 259.2951985671929, f = 377.2951985671929
+   Nodo = Sibiu, g = 140.0, h = 303.71368095625854, f = 443.71368095625854
+
+Apuntador: Zerind
+Camino: Arad->Zerind
