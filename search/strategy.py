@@ -67,28 +67,28 @@ class Strategy:
 
     @staticmethod
     def breadth_first_search(start, finish, graph, window):
-        frontier = [start]
+        frontier = PriorityQueue()
+        frontier.append(start, 0)
         graph.restart()
         prompter = Prompter(Node(''))
         with open('./reports/bfs.rpt', 'w') as report:
             report.write('Nodo inicial: {}\nNodo final: {}\n'.format(start.name, finish.name))
             t_start = t.time()
             while prompter.node.name != finish.name:
-                if len(frontier) != 0:
+                if not frontier.empty():
                     report.write('Frontera:\n')
-                    for node in frontier:
-                        if node.name != frontier[-1].name:
-                            report.write('   Nodo = {}\n'.format(node.name))
+                    for data in frontier.queue:
+                        report.write('   Nodo = {}\n'.format(data[0].name))
                 prompter.node.prompter = False
-                prompter.node = frontier.pop(0)
+                prompter.node = frontier.remove()[0]
                 prompter.node.visited = True
                 prompter.node.prompter = True
                 report.write('\nApuntador: {}\n'.format(prompter.node.name))
                 if len(prompter.node.route) != 0:
                     for track in prompter.node.route:
-                        if not track.visited:
+                        if not track.visited and not frontier.contains(track):
                             track.path = prompter.node
-                            frontier.append(track)
+                            frontier.append(track, 0)
                 render(1, window)
             t_end = t.time()
             track_back(prompter.node, start, graph, window, report)

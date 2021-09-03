@@ -1,10 +1,72 @@
 Nodo inicial: Arad
-Nodo final: Bucharest
+Nodo final: Oradea
 
 Apuntador: Arad
 
 Apuntador: Sibiu
 
 Apuntador: Fagaras
-Camino: Arad->Sibiu->Fagaras->Bucharest
+
+Apuntador: Bucharest
+
+Apuntador: Giurgiu
+
+Apuntador: Bucharest
+
+Apuntador: Pitesti
+
+Apuntador: Craiova
+
+Apuntador: Dobreta
+
+Apuntador: Mehadia
+
+Apuntador: Lugoj
+
+Apuntador: Timisoara
+
+Apuntador: Lugoj
+
+Apuntador: Mehadia
+
+Apuntador: Dobreta
+
+Apuntador: Craiova
+
+Apuntador: Rimnicu Vilcea
+
+Apuntador: Craiova
+
+Apuntador: Pitesti
+
+Apuntador: Bucharest
+
+Apuntador: Urziceni
+
+Apuntador: Hirsova
+
+Apuntador: Eforie
+
+Apuntador: Hirsova
+
+Apuntador: Urziceni
+
+Apuntador: Vaslui
+
+Apuntador: Iasi
+
+Apuntador: Neamt
+
+Apuntador: Iasi
+
+Apuntador: Vaslui
+
+Apuntador: Urziceni
+
+Apuntador: Bucharest
+
+Apuntador: Fagaras
+
+Apuntador: Sibiu
+Camino: Arad->Sibiu->Oradea
 Tiempo: 0.0000000000 segundos
