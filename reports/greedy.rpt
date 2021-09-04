@@ -1,16 +1,30 @@
 Nodo inicial: Arad
 Nodo final: Bucharest
 Frontera:
-   Nodo = Arad, h = 0, 
+   Nodo = Arad, h = 0
+
 Apuntador: Arad
 Frontera:
-   Nodo = Sibiu, h = 605.1264330699825,    Nodo = Timisoara, h = 809.67277340911,    Nodo = Zerind, h = 903.1500429053857, 
+   Nodo = Sibiu, h = 605.1264330699825
+   Nodo = Timisoara, h = 809.67277340911
+   Nodo = Zerind, h = 903.1500429053857
+
 Apuntador: Sibiu
 Frontera:
-   Nodo = Fagaras, h = 385.94559202042973,    Nodo = Rimnicu Vilcea, h = 403.2790597092787,    Nodo = Timisoara, h = 809.67277340911,    Nodo = Oradea, h = 817.5304275682955,    Nodo = Zerind, h = 903.1500429053857, 
+   Nodo = Fagaras, h = 385.94559202042973
+   Nodo = Rimnicu Vilcea, h = 403.2790597092787
+   Nodo = Timisoara, h = 809.67277340911
+   Nodo = Oradea, h = 817.5304275682955
+   Nodo = Zerind, h = 903.1500429053857
+
 Apuntador: Fagaras
 Frontera:
-   Nodo = Bucharest, h = 0.0,    Nodo = Rimnicu Vilcea, h = 403.2790597092787,    Nodo = Timisoara, h = 809.67277340911,    Nodo = Oradea, h = 817.5304275682955,    Nodo = Zerind, h = 903.1500429053857, 
+   Nodo = Bucharest, h = 0.0
+   Nodo = Rimnicu Vilcea, h = 403.2790597092787
+   Nodo = Timisoara, h = 809.67277340911
+   Nodo = Oradea, h = 817.5304275682955
+   Nodo = Zerind, h = 903.1500429053857
+
 Apuntador: Bucharest
 Camino: Arad->Sibiu->Fagaras->Bucharest
 Tiempo: 0.0000000000 segundos

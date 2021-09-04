@@ -1,13 +1,41 @@
 Nodo inicial: Arad
-Nodo final: Zerind
+Nodo final: Bucharest
 Frontera:
    Nodo = Arad, g = 0, h = 0, f = 0
 
 Apuntador: Arad
 Frontera:
-   Nodo = Zerind, g = 75.0, h = 0.0, f = 75.0
-   Nodo = Timisoara, g = 118.0, h = 259.2951985671929, f = 377.2951985671929
-   Nodo = Sibiu, g = 140.0, h = 303.71368095625854, f = 443.71368095625854
+   Nodo = Sibiu, g = 140.0, h = 605.1264330699825, f = 745.1264330699825
+   Nodo = Timisoara, g = 118.0, h = 809.67277340911, f = 927.67277340911
+   Nodo = Zerind, g = 75.0, h = 903.1500429053857, f = 978.1500429053857
 
-Apuntador: Zerind
-Camino: Arad->Zerind
+Apuntador: Sibiu
+Frontera:
+   Nodo = Rimnicu Vilcea, g = 220.0, h = 403.2790597092787, f = 623.2790597092787
+   Nodo = Fagaras, g = 239.0, h = 385.94559202042973, f = 624.9455920204298
+   Nodo = Timisoara, g = 118.0, h = 809.67277340911, f = 927.67277340911
+   Nodo = Zerind, g = 75.0, h = 903.1500429053857, f = 978.1500429053857
+   Nodo = Oradea, g = 291.0, h = 817.5304275682955, f = 1108.5304275682956
+
+Apuntador: Rimnicu Vilcea
+Frontera:
+   Nodo = Pitesti, g = 317.0, h = 198.25236442474022, f = 515.2523644247402
+   Nodo = Fagaras, g = 239.0, h = 385.94559202042973, f = 624.9455920204298
+   Nodo = Craiova, g = 366.0, h = 435.09309348689965, f = 801.0930934868996
+   Nodo = Timisoara, g = 118.0, h = 809.67277340911, f = 927.67277340911
+   Nodo = Zerind, g = 75.0, h = 903.1500429053857, f = 978.1500429053857
+   Nodo = Oradea, g = 291.0, h = 817.5304275682955, f = 1108.5304275682956
+
+Apuntador: Pitesti
+Frontera:
+   Nodo = Bucharest, g = 418.0, h = 0.0, f = 418.0
+   Nodo = Fagaras, g = 239.0, h = 385.94559202042973, f = 624.9455920204298
+   Nodo = Craiova, g = 366.0, h = 435.09309348689965, f = 801.0930934868996
+   Nodo = Craiova, g = 455.0, h = 435.09309348689965, f = 890.0930934868996
+   Nodo = Timisoara, g = 118.0, h = 809.67277340911, f = 927.67277340911
+   Nodo = Zerind, g = 75.0, h = 903.1500429053857, f = 978.1500429053857
+   Nodo = Oradea, g = 291.0, h = 817.5304275682955, f = 1108.5304275682956
+
+Apuntador: Bucharest
+Camino: Arad->Sibiu->Rimnicu Vilcea->Pitesti->Bucharest
+Tiempo: 0.0000000000 segundos

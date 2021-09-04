@@ -183,7 +183,7 @@ class Strategy:
                 if not frontier.empty():
                     report.write('Frontera:\n')
                     for data in frontier.queue:
-                        report.write('   Nodo = {}, h = {}, '.format(data[0].name, data[1]))
+                        report.write('   Nodo = {}, h = {}\n'.format(data[0].name, data[1]))
                 prompter.node.prompter = True
                 prompter.set_prompter_heuristic(frontier.remove())
                 prompter.node.prompter = True
