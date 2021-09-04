@@ -9,7 +9,7 @@ class PriorityQueue:
             i = 0
             success = False
             for d in self.queue:
-                if priority < d[1]:
+                if priority[0] < d[1][0]:
                     self.queue.insert(i, (data, priority))
                     success = True
                     break
@@ -48,5 +48,5 @@ class PriorityQueue:
     def get_priority(self, item):
         for data in self.queue:
             if data[0] == item:
-                return data[1]
+                return data[1][0]
         return 0

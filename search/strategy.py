@@ -68,7 +68,7 @@ class Strategy:
     @staticmethod
     def breadth_first_search(start, finish, graph, window):
         frontier = PriorityQueue()
-        frontier.append(start, 0)
+        frontier.append(start, [0])
         graph.restart()
         prompter = Prompter(Node(''))
         with open('./reports/bfs.rpt', 'w') as report:
@@ -88,7 +88,7 @@ class Strategy:
                     for track in prompter.node.route:
                         if not track.visited and not frontier.contains(track):
                             track.path = prompter.node
-                            frontier.append(track, 0)
+                            frontier.append(track, [0])
                 render(1, window)
             t_end = t.time()
             track_back(prompter.node, start, graph, window, report)
@@ -137,7 +137,7 @@ class Strategy:
     def uniform_cost_search(start, finish, graph, window):
         frontier = PriorityQueue()
         graph.restart()
-        frontier.append(start, 0)
+        frontier.append(start, [0])
         prompter = Prompter(Node(''))
         with open('./reports/ucs.rpt', 'w') as report:
             report.write('Nodo inicial: {}\nNodo final: {}\n'.format(start.name, finish.name))
@@ -146,7 +146,7 @@ class Strategy:
                 if not frontier.empty():
                     report.write('Frontera:\n')
                     for data in frontier.queue:
-                        report.write('   Nodo = {}, g = {}\n'.format(data[0].name, data[1]))
+                        report.write('   Nodo = {}, g = {}\n'.format(data[0].name, data[1][0]))
                 prompter.node.prompter = False
                 prompter.set_prompter_cost(frontier.remove())
                 prompter.node.prompter = True
@@ -158,10 +158,10 @@ class Strategy:
                         if frontier.contains(track):
                             if total_cost < frontier.get_priority(track):
                                 track.path = prompter.node
-                                frontier.replace(track, total_cost)
+                                frontier.replace(track, [total_cost])
                         else:
                             track.path = prompter.node
-                            frontier.append(track, total_cost)
+                            frontier.append(track, [total_cost])
                 render(1, window)
             t_end = t.time()
             prompter = prompter.node
@@ -173,7 +173,7 @@ class Strategy:
     @staticmethod
     def greedy_search(start, finish, graph, window):
         frontier = PriorityQueue()
-        frontier.append(start, 0)
+        frontier.append(start, [0])
         graph.restart()
         prompter = Prompter(Node(''))
         with open('./reports/greedy.rpt', 'w') as report:
@@ -183,7 +183,7 @@ class Strategy:
                 if not frontier.empty():
                     report.write('Frontera:\n')
                     for data in frontier.queue:
-                        report.write('   Nodo = {}, h = {}\n'.format(data[0].name, data[1]))
+                        report.write('   Nodo = {}, h = {}\n'.format(data[0].name, data[1][0]))
                 prompter.node.prompter = False
                 prompter.set_prompter_heuristic(frontier.remove())
                 prompter.node.prompter = True
@@ -193,7 +193,7 @@ class Strategy:
                     if not track.visited:
                         heuristic = point_to_point_distance(track, finish)
                         track.path = prompter.node
-                        frontier.append(track, heuristic)
+                        frontier.append(track, [heuristic])
                 render(1, window)
             t_end = t.time()
             prompter = prompter.node
@@ -205,7 +205,7 @@ class Strategy:
     @staticmethod
     def a_star(start, finish, graph, window):
         frontier = PriorityQueue()
-        frontier.append((start, 0, 0), 0)
+        frontier.append(start, (0, 0, 0))
         graph.restart()
         prompter = Prompter(Node(''))
         with open('./reports/a_star.rpt', 'w') as report:
@@ -216,7 +216,7 @@ class Strategy:
                     report.write('Frontera:\n')
                     for data in frontier.queue:
                         report.write('   Nodo = {}, g = {}, h = {}, f = {}\n'.
-                                     format(data[0][0].name, data[0][1], data[0][2], data[1]))
+                                     format(data[0].name, data[1][1], data[1][2], data[1][0]))
                 prompter.node.prompter = False
                 prompter.set_prompter_cost_heuristic(frontier.remove())
                 prompter.node.prompter = True
@@ -230,10 +230,10 @@ class Strategy:
                         if frontier.contains(track):
                             if f < frontier.get_priority(track):
                                 track.path = prompter.node
-                                frontier.replace((track, total_cost), f)
+                                frontier.replace(track, (f, total_cost, heuristic))
                         else:
                             track.path = prompter.node
-                            frontier.append((track, total_cost, heuristic), f)
+                            frontier.append(track, (f, total_cost, heuristic))
                 render(1, window)
             t_end = t.time()
             prompter = prompter.node
