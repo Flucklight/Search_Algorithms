@@ -184,7 +184,7 @@ class Strategy:
                     report.write('Frontera:\n')
                     for data in frontier.queue:
                         report.write('   Nodo = {}, h = {}\n'.format(data[0].name, data[1]))
-                prompter.node.prompter = True
+                prompter.node.prompter = False
                 prompter.set_prompter_heuristic(frontier.remove())
                 prompter.node.prompter = True
                 prompter.node.visited = True

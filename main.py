@@ -125,17 +125,29 @@ class MainWindow(QMainWindow):
 
     def search(self, strategy):
         if strategy == 'dfs':
+            self.enable = False
             search.depth_first_search(self.start_node, self.finish_node, self.graph, self)
+            self.enable = True
         elif strategy == 'bfs':
+            self.enable = False
             search.breadth_first_search(self.start_node, self.finish_node, self.graph, self)
+            self.enable = True
         elif strategy == 'ids':
+            self.enable = False
             search.iterative_depth_search(self.start_node, self.finish_node, self.graph, self)
+            self.enable = True
         elif strategy == 'ucs':
+            self.enable = False
             search.uniform_cost_search(self.start_node, self.finish_node, self.graph, self)
+            self.enable = True
         elif strategy == 'greedy':
+            self.enable = False
             search.greedy_search(self.start_node, self.finish_node, self.graph, self)
+            self.enable = True
         elif strategy == 'A*':
+            self.enable = False
             search.a_star(self.start_node, self.finish_node, self.graph, self)
+            self.enable = True
 
     def paintEvent(self, event):
         qp = QPainter()
@@ -161,25 +173,27 @@ class MainWindow(QMainWindow):
         qp.end()
 
     def contextMenuEvent(self, event):
-        menu = QMenu(self)
-        menu.addAction('Inicio', lambda: self.action('start', event))
-        menu.addSeparator()
-        menu.addAction('Fin', lambda: self.action('finish', event))
-        menu.exec(event.globalPos())
+        if self.enable:
+            menu = QMenu(self)
+            menu.addAction('Inicio', lambda: self.action('start', event))
+            menu.addSeparator()
+            menu.addAction('Fin', lambda: self.action('finish', event))
+            menu.exec(event.globalPos())
 
     def mousePressEvent(self, event):
         select = self.select(event)
-        if event.buttons() and Qt.LeftButton and select.name != '':
+        if event.buttons() and Qt.LeftButton and select.name != '' and self.enable:
             self.move = select
             self.drag = True
 
     def mouseMoveEvent(self, event):
         if self.drag:
-            self.move.x = event.pos().x()
-            self.move.y = event.pos().y()
-            self.update()
+            if 0 <= event.pos().x() <= 1150 and 0 <= event.pos().y() <= 540:
+                self.move.x = event.pos().x()
+                self.move.y = event.pos().y()
+                self.update()
 
-    def mouseReleaseEvent(self, *args, **kwargs):
+    def mouseReleaseEvent(self, event):
         if self.drag:
             self.drag = False
             self.move = []
